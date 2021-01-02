@@ -1,5 +1,5 @@
 # ParagraphJointModel
-Implementation of The AAAI-21 Workshop on Scientific Document Understanding paper "A Paragraph-level Multi-task Learning Model for Scientific Fact-Verification".
+Implementation of The AAAI-21 Workshop on Scientific Document Understanding paper [A Paragraph-level Multi-task Learning Model for Scientific Fact-Verification](https://arxiv.org/abs/2012.14500).
 
 ## Requirements
 * tqdm
