@@ -155,9 +155,9 @@ def post_process_rationale_score(rationale_scores, max_positive=3): ### Doesn't 
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser(description="Train, cross-validate and run sentence sequence tagger")
     argparser.add_argument('--repfile', type=str, default = "roberta-large", help="Word embedding file")
-    argparser.add_argument('--corpus_file', type=str, default="/nas/home/xiangcil/scifact/data/corpus.jsonl")
-    argparser.add_argument('--test_file', type=str, default="/nas/home/xiangcil/CitationEvaluation/SciFact/claims_dev_retrieved.jsonl")
-    argparser.add_argument('--dataset', type=str, default="/nas/home/xiangcil/CitationEvaluation/SciFact/claims_dev.jsonl")
+    argparser.add_argument('--corpus_file', type=str, default="/home/xxl190027/scifact_data/corpus.jsonl")
+    argparser.add_argument('--test_file', type=str, default="/home/xxl190027/scifact_data/claims_dev_retrieved.jsonl")
+    argparser.add_argument('--dataset', type=str, default="/home/xxl190027/scifact_data/claims_dev.jsonl")
     argparser.add_argument('--dropout', type=float, default=0, help="embedding_dropout rate")
     argparser.add_argument('--bert_dim', type=int, default=1024, help="bert_dimension")
     argparser.add_argument('--MAX_SENT_LEN', type=int, default=512)

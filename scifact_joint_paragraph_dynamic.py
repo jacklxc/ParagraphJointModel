@@ -217,12 +217,12 @@ def post_process_stance(rationale_json, stance_json):
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser(description="Train, cross-validate and run sentence sequence tagger")
     argparser.add_argument('--repfile', type=str, default = "roberta-large", help="Word embedding file")
-    argparser.add_argument('--corpus_file', type=str, default="/nas/home/xiangcil/scifact/data/corpus.jsonl")
-    argparser.add_argument('--train_file', type=str, default="/nas/home/xiangcil/CitationEvaluation/SciFact/claims_train_retrieved.jsonl")
+    argparser.add_argument('--corpus_file', type=str, default="/home/xxl190027/scifact_data/corpus.jsonl")
+    argparser.add_argument('--train_file', type=str, default="/home/xxl190027/scifact_data/claims_train_retrieved.jsonl")
     argparser.add_argument('--pre_trained_model', type=str)
     #argparser.add_argument('--train_file', type=str)
-    argparser.add_argument('--test_file', type=str, default="/nas/home/xiangcil/CitationEvaluation/SciFact/claims_dev_retrieved.jsonl")
-    argparser.add_argument('--dataset', type=str, default="/nas/home/xiangcil/CitationEvaluation/SciFact/claims_dev.jsonl")
+    argparser.add_argument('--test_file', type=str, default="/home/xxl190027/scifact_data/claims_dev_retrieved.jsonl")
+    argparser.add_argument('--dataset', type=str, default="/home/xxl190027/scifact_data/claims_dev.jsonl")
     argparser.add_argument('--bert_lr', type=float, default=1e-5, help="Learning rate for BERT-like LM")
     argparser.add_argument('--lr', type=float, default=5e-6, help="Learning rate")
     argparser.add_argument('--dropout', type=float, default=0, help="embedding_dropout rate")
@@ -319,26 +319,22 @@ if __name__ == "__main__":
             dev_score = evaluation(model, dev_set)
             print(f'Epoch {epoch}, dev stance f1 p r: %.4f, %.4f, %.4f, rationale f1 p r: %.4f, %.4f, %.4f' % dev_score)
             torch.save(model.state_dict(), args.checkpoint) ############
-            dev_perf = dev_score[0] * dev_score[3]
-            if dev_perf >= prev_performance:
-                torch.save(model.state_dict(), args.checkpoint)
-                best_state_dict = model.state_dict()
-                prev_performance = dev_perf
-                print("New model saved!")
-            else:
-                print("Skip saving model.")
+            #dev_perf = dev_score[0] * dev_score[3]
+            #if dev_perf >= prev_performance:
+            #    torch.save(model.state_dict(), args.checkpoint)
+            #    best_state_dict = model.state_dict()
+            #    prev_performance = dev_perf
+            #    print("New model saved!")
+            #else:
+            #    print("Skip saving model.")
         
 
     if test:
         if train:
             del model
-            model = JointParagraphClassifier(args.repfile, args.bert_dim, 
-                                              args.dropout).to(device)
-            model.load_state_dict(best_state_dict)
-            print("Testing on the new model.")
-        else:
-            model.load_state_dict(torch.load(args.checkpoint))
-            print("Loaded saved model.")
+        model = JointParagraphClassifier(args.repfile, args.bert_dim, 
+                                          args.dropout).to(device)
+        model.load_state_dict(torch.load(args.checkpoint))
         
         # Evaluation
         #dev_score = evaluation(model, dev_set)
