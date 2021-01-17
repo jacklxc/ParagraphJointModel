@@ -1,17 +1,6 @@
 # ParagraphJointModel
 Implementation of The AAAI-21 Workshop on Scientific Document Understanding paper [A Paragraph-level Multi-task Learning Model for Scientific Fact-Verification](https://arxiv.org/abs/2012.14500). This work is at the top of [SciFact leaderboard](https://scifact.apps.allenai.org/leaderboard) as of Jan 10th, 2021.
 
-## Requirements
-* tqdm
-* python3
-* jsonlines
-* nltk
-* numpy
-* pytorch (developed with version 1.6.0)
-* scikit-learn
-* sent2vec
-* transformers (Huggingface)
-
 ## Abstract Retrieval
 Please refer to `.ipynb` files in `abstract_retrieval`.
 
