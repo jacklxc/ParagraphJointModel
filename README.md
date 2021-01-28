@@ -18,7 +18,7 @@ Then, install Python requirements:
 ```
 pip install -r requirements.txt
 ```
-
+If you encounter any installation problem regarding sent2vec, please check [their repo](https://github.com/epfml/sent2vec).  
 The BioSentVec model is available [here](https://github.com/ncbi-nlp/BioSentVec#biosentvec).
 
 The SciFact claim files and corpus file are available at [SciFact repo](https://github.com/allenai/scifact).
