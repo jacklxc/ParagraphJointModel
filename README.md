@@ -35,6 +35,8 @@ python SentVecAbstractRetriaval.py --claim_file /path/to/claims.jsonl --corpus_f
 #### FEVER Pre-training
 You need to retrieve some negative samples for FEVER pre-training. We used the trieval code from [here](https://github.com/sheffieldnlp/fever-naacl-2018). Empirically, only retrieving 5 negative examples for each claim is enough, while retrieving more may be way too time-consuming. You need to convert the format of the output of the retrieval code to the input of SciFact.
 
+The retrieved FEVER examples with `k_retrieval=15` are available at: [train](https://drive.google.com/file/d/1sS6mpaALuWnk6Pl2twIt_GcBs7ExRY2b/view?usp=sharing), [dev](https://drive.google.com/file/d/1sOfFL6fvK-AYjzcGPJ5KqcFPmAMvQJUi/view?usp=sharing).
+
 Run `FEVER_joint_paragraph_dynamic.py` to pre-train the model on FEVER. Use `--checkpoint` to specify the checkpoint path. Run `scifact_joint_paragraph_dynamic.py` to fine-tune on SciFact dataset. Use `--pre_trained_model` to load the pre-trained model. Please check the other options in the source file.
 
 ### Joint Prediction of Rationale Selection and Stance Prediciton
