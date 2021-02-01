@@ -30,7 +30,7 @@ python ComputeBioSentVecAbstractEmbedding.py --claim_file /path/to/claims.jsonl 
 
 python SentVecAbstractRetriaval.py --claim_file /path/to/claims.jsonl --corpus_file /path/to/corpus.jsonl --k_retrieval 30 --claim_retrieved_file /output/path/of/retrieval_file.jsonl --scifact_abstract_retrieval_file /output/path/of/retrieval_file_scifact_format.jsonl
 ```
-
+The retrieved abstracts are available here: [train](https://drive.google.com/file/d/18yWhLP3n1OjT_XrUB3rJwNMnLRI3k8Ck/view?usp=sharing), [dev](https://drive.google.com/file/d/1fnfdOA2e3_U-kGavuhoyiYZUlDYWX9eM/view?usp=sharing), [test](https://drive.google.com/file/d/10Lh0aP06tGfZ-LlNGWnDtN0GM8M14z2q/view?usp=sharing).
 ### Training of the ParagraphJoint Model (Optional for Result Reproduction Purpose)
 #### FEVER Pre-training
 You need to retrieve some negative samples for FEVER pre-training. We used the trieval code from [here](https://github.com/sheffieldnlp/fever-naacl-2018). Empirically, only retrieving 5 negative examples for each claim is enough, while retrieving more may be way too time-consuming. You need to convert the format of the output of the retrieval code to the input of SciFact.
