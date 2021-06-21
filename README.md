@@ -22,7 +22,8 @@ If you encounter any installation problem regarding sent2vec, please check [thei
 The BioSentVec model is available [here](https://github.com/ncbi-nlp/BioSentVec#biosentvec).
 
 The SciFact claim files and corpus file are available at [SciFact repo](https://github.com/allenai/scifact).
-The checkpoint of the model used for leaderboard submission is available [here](https://drive.google.com/file/d/1hMrQzFe1EaJpCN9s3pF27Wu3amBbekiI/view?usp=sharing).
+The checkpoint of Paragraph-Joint model used for the paper (trained on training set) is available [here](https://drive.google.com/file/d/1agyrkUGJ0lxTBJpdy1QCyaAAJyxBnoO2/view?usp=sharing).
+The checkpoint of Paragraph-Joint model used for leaderboard submission (trained on train+dev set) is available [here](https://drive.google.com/file/d/1hMrQzFe1EaJpCN9s3pF27Wu3amBbekiI/view?usp=sharing).
 
 ### Abstract Retrieval
 ```
@@ -36,6 +37,8 @@ The retrieved abstracts are available here: [train](https://drive.google.com/fil
 You need to retrieve some negative samples for FEVER pre-training. We used the trieval code from [here](https://github.com/sheffieldnlp/fever-naacl-2018). Empirically, only retrieving 5 negative examples for each claim is enough, while retrieving more may be way too time-consuming. You need to convert the format of the output of the retrieval code to the input of SciFact.
 
 For your convenience, the converted retrieved FEVER examples with `k_retrieval=15` are available: [train](https://drive.google.com/file/d/1sS6mpaALuWnk6Pl2twIt_GcBs7ExRY2b/view?usp=sharing), [dev](https://drive.google.com/file/d/1sOfFL6fvK-AYjzcGPJ5KqcFPmAMvQJUi/view?usp=sharing).
+
+The checkpoint of the Paragraph-Joint model only pretrained on the retrieved FEVER examples shared above is available [here](https://drive.google.com/file/d/12u9glqoCBuhxnP9P8dM4HSncAIjHmQ_U/view?usp=sharing).
 
 Run `FEVER_joint_paragraph_dynamic.py` to pre-train the model on FEVER. Use `--checkpoint` to specify the checkpoint path. Run `scifact_joint_paragraph_dynamic.py` to fine-tune on SciFact dataset. Use `--pre_trained_model` to load the pre-trained model. Please check the other options in the source file.
 
