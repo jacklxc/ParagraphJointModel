@@ -51,7 +51,7 @@ if __name__ == "__main__":
         sorted_order = np.argsort(max_similarity)[::-1]
         ordered_corpus[claim_id] = corpus_ids[sorted_order]
         
-    k = arg.k_retrieval
+    k = args.k_retrieval
     retrieved_corpus = {ID:v[:k] for ID,v in ordered_corpus.items()}
     
     with jsonlines.open(args.claim_retrieved_file, 'w') as output:
