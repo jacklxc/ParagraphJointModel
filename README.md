@@ -65,4 +65,13 @@ File names with `kgat` means those models with [KGAT](https://github.com/xiangwa
 ### Fine-tuning
 You can use `--pre_trained_model path/to/pre_trained.model` to load a model trained on FEVER dataset and fine-tune on SciFact.
 
+## Cite our paper
+```
+@inproceedings{li2021paragraph,
+  title={A Paragraph-level Multi-task Learning Model for Scientific Fact-Verification.},
+  author={Li, Xiangci and Burns, Gully A and Peng, Nanyun},
+  booktitle={SDU@ AAAI},
+  year={2021}
+}
+```
 
